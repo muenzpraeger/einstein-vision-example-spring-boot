@@ -1,0 +1,17 @@
+{
+  "name": "Einstein Vision Spring Boot",
+  "description": "Showcasing Einstein Vision in an Java web app",
+  "keywords": [
+    "einstein",
+    "vision",
+    "salesforce",
+    "spring boot",
+    "vaadin"
+  ],
+  "image": "heroku/gradle",
+  "website": "https://github.com/muenzpraeger/einstein-vision-example-spring-boot",
+  "repository": "https://github.com/muenzpraeger/einstein-vision-example-spring-boot",
+  "addons" : [
+      "einstein-vision:test"
+  ]
+}

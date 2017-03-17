@@ -1,0 +1,48 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.2.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven {
+        url  "http://dl.bintray.com/muenzpraeger/salesforce-maven" 
+    }
+}
+
+dependencies {
+	// Einstein Vision Wrapper
+	compile('com.winkelmeyer:salesforce-einstein-vision:1.1.1') {
+		exclude group: 'org.slf4j' // excluding SLF4J as spring boot complains a bit about it ;-)
+	}
+	// Authorization for MetaMind classes
+	compile('org.glassfish.jersey.core:jersey-client:2.25')
+    compile('org.glassfish.jersey.media:jersey-media-multipart:2.25')
+    compile('commons-codec:commons-codec:1.9')
+    compile('org.bitbucket.b_c:jose4j:0.5.4')
+    compile('com.fasterxml.jackson.core:jackson-databind:2.8.5')
+    compile('org.apache.commons:commons-lang3:3.4')
+	// Spring Boot with Vaadin
+	compile('com.vaadin:vaadin-spring-boot-starter')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "com.vaadin:vaadin-bom:8.0.0"
+	}
+}
