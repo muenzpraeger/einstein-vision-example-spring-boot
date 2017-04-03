@@ -26,7 +26,7 @@ repositories {
 
 dependencies {
 	// Einstein Vision Wrapper
-	compile('com.winkelmeyer:salesforce-einstein-vision:1.1.1') {
+	compile('com.winkelmeyer:salesforce-einstein-vision:+') {
 		exclude group: 'org.slf4j' // excluding SLF4J as spring boot complains a bit about it ;-)
 	}
 	// Authorization for MetaMind classes
